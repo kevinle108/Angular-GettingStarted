@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class='table-responsive'>
-        <table class='table'>
+        <table class='table' *ngIf="products.length">
           <thead>
             <tr>
               <th>
@@ -31,7 +31,24 @@
             </tr>
           </thead>
           <tbody>
-          
+            <!-- {
+              "productId": 1,
+              "productName": "Leaf Rake",
+              "productCode": "GDN-0011",
+              "releaseDate": "March 19, 2021",
+              "description": "Leaf rake with 48-inch wooden handle.",
+              "price": 19.95,
+              "starRating": 3.2,
+              "imageUrl": "assets/images/leaf_rake.png"
+            }, -->
+            <tr *ngFor="let product of products">
+              <img [src]="product.imageUrl" [title]="product.productName"  [style.width.px]="imageWidth" [style.margin.px]="imageMargin">
+              <td>{{product.productName}}</td>
+              <td>{{product.productCode}}</td>
+              <td>{{product.releaseDate}}</td>
+              <td>{{product.price}}</td>
+              <td>{{product.starRating}}</td>
+            </tr>
         </table>
       </div>
     </div>
